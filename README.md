@@ -146,3 +146,27 @@ The `gamm_output_file` variable specifies the location and filename of the Excel
 - Predicted GAMM spectral curves with 95% confidence intervals for both comparisons.
 
 The GAMM results are exported to `GAMM_results_a.xlsx` (or the filename specified in `gamm_output_file`). The plots are displayed in R but are not automatically saved as image files.
+
+
+### Task 04 – Nasal consonant durations
+
+**Script:** `task_04_n_durations.R`
+
+This script calculates descriptive statistics for the duration of /n/ in the four Task 4 sequences /and/, /end/, /ind/, and /und/. It processes duration measurements from an Excel spreadsheet and calculates the number of valid observations, mean, median, standard deviation, minimum, and maximum duration (in milliseconds) for each sequence and for all four sequences combined. Duration values are rounded to one decimal place in the final summary table.
+
+**Required input file:**
+- `file_path`: Task 4 nasal consonant duration measurements (`n_durations.xlsx`), containing the sequence labels (`item`) and duration values in milliseconds (`n_duration_ms`).
+
+The input file is read using the `readxl` package.
+
+**File paths and execution:**
+
+The script does not contain the original local file paths used during the analysis. These have been replaced with placeholders to avoid publishing personal directory information. To execute the script, users must specify the location of the corresponding input spreadsheet in the `file_path` variable and the desired output location in the `output_path` variable. The input data are not included in this repository.
+
+**Software requirements:** R with the `readxl`, `dplyr`, and `writexl` packages.
+
+**Output:** One Excel spreadsheet:
+
+- `n_duration_summary.xlsx` – descriptive statistics for /n/ duration by sequence and overall, including observation counts, mean, median, standard deviation, minimum, and maximum duration in milliseconds.
+
+The output file is saved to the location specified in `output_path`.
