@@ -278,7 +278,7 @@ This Praat script implements the automated acoustic measurement procedure used f
 
 The function applies temporal padding to the vowel segment, performs pitch analysis, and evaluates formant estimates obtained with different ceiling settings. It returns acoustic measurements in a Praat table and can generate diagnostic visualizations.
 
-In the present study, the function was called by `task_01_makeTable.praat` for the initial Task 01 measurements, by `task_02_makeTable.praat` for Task 02 measurements, and by `task_01_reanalyse_u_nasal.praat` for the selective reanalysis of 11 nasal /ũ/ tokens. The formant-ceiling range and other analysis parameters are passed to the function by the calling scripts.
+In the present study, the function was called by `task_01_makeTable.praat` for the initial Task 01 measurements, by `task_02_makeTable.praat` for Task 02 measurements, and by `task_01_reanalyze_u_nasal.praat` for the selective reanalysis of 11 nasal /ũ/ tokens. The formant-ceiling range and other analysis parameters are passed to the function by the calling scripts.
 
 **Required input:**
 - An individual vowel Sound object supplied automatically by the calling script.
