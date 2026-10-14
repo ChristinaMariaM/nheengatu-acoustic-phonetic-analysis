@@ -77,3 +77,38 @@ The output directory is automatically determined from the location of the input 
 - `task02_kmeans_cluster_summary.csv` – descriptive statistics for each acoustic cluster.
 - `task02_kmeans_cluster_centres.csv` – cluster centers in Hz and token counts.
 - `task02_kmeans_vowel_space.png` – vowel-space plot showing the two clusters and their centers.
+
+
+### Task 04 – Spectral-energy measures
+
+**Script:** `task_04_spectral_energy_measures.R`
+
+This script processes spectral measurements obtained from Task 4 /Vnd/ vowels and phonologically nasal reference vowels from Task 1. It calculates descriptive statistics and generates boxplots comparing the two groups across four acoustic measures: local spectral-minimum frequency (Hz), local spectral-minimum energy (dB), relative spectral band energy (raw ratio), and relative nasal-window energy (dB). For each measure and group, the script calculates the number of valid observations, mean, median, and standard deviation.
+
+**Required input files:**
+- `oral_antiformant_path`: Task 4 spectral-minimum measurements (`antiformant_candidates_task04.csv`).
+- `nasal_antiformant_path`: Task 1 phonologically nasal reference measurements (`antiformant_candidates_task01_nasal.csv`).
+- `oral_band_path`: Task 4 relative nasal-window energy measurements (`relative_nasal_window_energy_task04.csv`).
+- `nasal_band_path`: Task 1 phonologically nasal reference energy measurements (`relative_nasal_window_energy_task01_nasal.csv`).
+
+All four input files are read as semicolon-delimited CSV files. The two Task 1 reference files are explicitly read using UTF-16BE encoding.
+
+**File paths and execution:**
+
+The script does not contain the original local file paths used during the analysis. These have been replaced with placeholders to avoid publishing personal directory information. To execute the script, users must specify the locations of the four corresponding input files in the path variables defined at the beginning of the script. The input data are not included in this repository.
+
+All output files are saved in the current R working directory.
+
+**Software requirements:** R with the `tidyverse` package.
+
+**Output:** Descriptive statistics and boxplots, saved as the following files:
+
+- `task04_spectral_descriptive_statistics.csv` – combined descriptive statistics for all four acoustic measures.
+- `task04_local_spectral_minimum_frequency_summary.csv` – descriptive statistics for local spectral-minimum frequency.
+- `task04_local_spectral_minimum_energy_summary.csv` – descriptive statistics for local spectral-minimum energy.
+- `task04_relative_band_energy_raw_summary.csv` – descriptive statistics for relative spectral band energy (raw ratio).
+- `task04_relative_nasal_window_energy_summary.csv` – descriptive statistics for relative nasal-window energy (dB).
+- `boxplot_local_spectral_minimum_frequency.png` – comparison of local spectral-minimum frequencies.
+- `boxplot_local_spectral_minimum_energy_dB.png` – comparison of local spectral-minimum energies.
+- `boxplot_relative_band_energy.png` – comparison of relative spectral band energy (raw ratio).
+- `boxplot_relative_nasal_window_energy_dB.png` – comparison of relative nasal-window energy (dB).
