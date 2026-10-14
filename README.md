@@ -116,7 +116,7 @@ All output files are saved in the current R working directory.
 
 ### Task 04 – Spectra and GAMM
 
-**Script:** `task_04_spectra_and_GAMM.R`
+**Script:** `task_04_spectra_and_gamm.R`
 
 This script analyzes spectral measurements from Task 1 and Task 4 to investigate the acoustic characteristics of vowels in /Vnd/ sequences relative to phonologically oral and nasal reference vowels. The analysis is restricted to five reference speakers (1, 2, 6, 8, and 13). Individual spectra are centered by subtracting the mean amplitude of each token, and mean spectral curves are calculated for each vowel and group.
 
