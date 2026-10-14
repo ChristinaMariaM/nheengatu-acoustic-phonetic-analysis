@@ -165,6 +165,38 @@ The script does not contain the original local file paths used during the analys
 
 **Software requirements:** R with the `readxl`, `dplyr`, and `writexl` packages.
 
+
+### Task 04 – Effect of speech style on nasalization
+
+**Script:** `task_04_speech_style_nasalization.R`
+
+This script investigates the effect of speech style on acoustic measures associated with nasalization in Task 4, comparing read speech (Task 04a) and spontaneous speech (Task 04b). It processes spectral-minimum and relative nasal-window energy measurements, calculates descriptive statistics, and generates boxplots showing the distribution of individual tokens across speech styles.
+
+Three acoustic measures are analyzed: relative nasal-window energy (dB), local spectral-minimum energy (dB), and local spectral-minimum frequency (Hz). For each measure, the script calculates speaker-level mean values and performs a paired Wilcoxon signed-rank test to compare read and spontaneous speech. Additional paired plots illustrate the differences between speech styles for individual speakers.
+
+**Required input files:**
+- `anti_file`: Task 04 spectral-minimum measurement CSV, containing local spectral-minimum frequencies (`minFreq_Hz`) and energies (`minEnergy_dB`).
+- `band_file`: Task 04 relative nasal-window energy measurement CSV, containing relative spectral band energy values (`relativeBandEnergy_dB`).
+
+Both input files must contain observations from Task 04a and Task 04b, identifiable through the `file` column. They are read as semicolon-delimited CSV files.
+
+**File paths and execution:**
+
+The script does not contain personal local file paths. Instead, the `file.choose()` function allows users to select the two required input files interactively when executing the script. The input data are not included in this repository.
+
+All exported files are saved in the current R working directory.
+
+**Software requirements:** R with the `tidyverse` package.
+
+**Output:** Descriptive statistics, statistical test results, and visualizations, including:
+
+- `task04_antiformant_summary.csv` – descriptive statistics for local spectral-minimum energy and frequency by speech style.
+- `task04_band_energy_summary.csv` – descriptive statistics for relative nasal-window energy by speech style.
+- `task04_wilcoxon_summary.csv` – Wilcoxon signed-rank test statistics and p-values for all three acoustic measures.
+- Three token-level boxplots comparing read and spontaneous speech.
+- Three paired speaker-level plots illustrating differences between speech styles.
+
+The CSV files are saved in the current working directory. The plots are displayed in R but are not automatically exported as image files.
 **Output:** One Excel spreadsheet:
 
 - `n_duration_summary.xlsx` – descriptive statistics for /n/ duration by sequence and overall, including observation counts, mean, median, standard deviation, minimum, and maximum duration in milliseconds.
