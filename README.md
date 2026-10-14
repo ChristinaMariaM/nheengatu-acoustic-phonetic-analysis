@@ -1,6 +1,10 @@
 # nheengatu-acoustic-phonetic-analysis
 R and Praat scripts for the acoustic-phonetic analysis of Nheengatu speech data
 
+This repository contains the R and Praat scripts used for the acoustic-phonetic analysis of Nheengatu speech data in a master's thesis at the University of Zurich. The scripts cover vowel formants, vowel-space analysis, glottal-stop occurrence, spectral measures associated with nasalization, and nasal consonant duration.
+
+The original speech recordings, annotations, and measurement datasets are not publicly available in this repository because access to the underlying research data is restricted.
+
 ## R scripts
 
 ### Task 01 – Vowel formants
@@ -41,6 +45,13 @@ The script does not contain the original local file path used during the analysi
 
 **Software requirements:** R with the `tidyverse` and `cluster` packages.
 
+**Output:** Vowel-space plots and the following files, saved in the current working directory:
+
+- `task02_kmeans_classified_tokens.csv` – token-level formant measurements, cluster assignments, and silhouette widths.
+- `task02_kmeans_cluster_summary.csv` – descriptive statistics for each acoustic cluster.
+- `task02_kmeans_cluster_centres.csv` – cluster centers in Hz and token counts.
+- `task02_kmeans_vowel_space.png` – vowel-space plot showing the two clusters and their centers.
+
 
 ### Task 03 – Descriptive and inferential statistics
 
@@ -73,13 +84,6 @@ The output directory is automatically determined from the location of the input 
 - `task03_glottal_L1_status_fixed_effects.csv` – fixed-effect estimates, significance tests, and odds ratios.
 - `task03_glottal_L1_status_random_effects.csv` – random-effect estimates.
 - `task03_glottal_L1_status_model_info.csv` – model diagnostics and fit statistics.
-**Output:** Vowel-space plots and the following files, saved in the current working directory:
-
-- `task02_kmeans_classified_tokens.csv` – token-level formant measurements, cluster assignments, and silhouette widths.
-- `task02_kmeans_cluster_summary.csv` – descriptive statistics for each acoustic cluster.
-- `task02_kmeans_cluster_centres.csv` – cluster centers in Hz and token counts.
-- `task02_kmeans_vowel_space.png` – vowel-space plot showing the two clusters and their centers.
-
 
 ### Task 04 – Spectral-energy measures
 
@@ -167,6 +171,12 @@ The script does not contain the original local file paths used during the analys
 
 **Software requirements:** R with the `readxl`, `dplyr`, and `writexl` packages.
 
+**Output:** One Excel spreadsheet:
+
+- `n_duration_summary.xlsx` – descriptive statistics for /n/ duration by sequence and overall, including observation counts, mean, median, standard deviation, minimum, and maximum duration in milliseconds.
+
+The output file is saved to the location specified in `output_path`.
+
 
 ### Task 04 – Effect of speech style on nasalization
 
@@ -200,16 +210,12 @@ All exported files are saved in the current R working directory.
 
 The CSV files are saved in the current working directory. The plots are displayed in R but are not automatically exported as image files.
 
-**Output:** One Excel spreadsheet:
-
-- `n_duration_summary.xlsx` – descriptive statistics for /n/ duration by sequence and overall, including observation counts, mean, median, standard deviation, minimum, and maximum duration in milliseconds.
-
-The output file is saved to the location specified in `output_path`.
-
 
 ## Praat scripts
 
-### DatabaseExplorer – Sound file browsing and editing
+The Praat scripts were used with versions 6.4.17 and 6.6.30. Some scripts were originally developed by Prof. Volker Dellwo (University of Zurich) and adapted for the present study, while others were developed specifically for this research. Original authorship and licensing information are retained where applicable.
+
+### DatabaseExplorer – Sound file browsing and editing (Tasks 01, 02, and 04)
 
 **Script:** `databaseExplorer.praat`
 
@@ -217,7 +223,7 @@ The output file is saved to the location specified in `output_path`.
 
 This open-source Praat script facilitates browsing and basic editing of Sound objects stored in the same directory. It allows users to navigate between recordings, inspect their acoustic properties, and perform basic editing operations, including the extraction and saving of selected sound segments. The tool also supports working with corresponding TextGrid annotations.
 
-In the present study, DatabaseExplorer was used to review extracted vowel recordings and perform basic editing where necessary. The script was used without modification.
+In the present study, DatabaseExplorer was used across Tasks 01, 02, and 04 to review extracted vowel recordings and perform basic editing where necessary. The script was used without modification.
 
 **Required input:**
 - A Sound object selected in Praat, originating from a directory containing the recordings to be reviewed.
@@ -590,3 +596,4 @@ The annotation tier, analysis-window duration, and frequency limits can be confi
 **Output:** A tab-separated TSV file containing token identifiers, vowel identity, dataset label, vowel and analysis-window boundaries, frequency values, and spectral amplitude measurements.
 
 **Data availability:** The original recordings, TextGrid annotations, and measurement tables are not included in this repository because access to the underlying speech data is restricted.
+
