@@ -466,7 +466,7 @@ The script processes nonempty intervals in the selected annotation tier. The num
 
 ### Task 04 – Local spectral-minimum analysis
 
-**Script:** `antiformant_candidates.praat`
+**Script:** `task_04_antiformant_candidates.praat`
 
 This script estimates the frequency and magnitude of the lowest local spectral-energy point within a predefined frequency window, providing an exploratory measure of spectral attenuation potentially associated with nasalization.
 
@@ -493,7 +493,7 @@ The script processes the first nonempty interval in the selected tier of each fi
 
 ### Task 04 – Relative nasal-window energy
 
-**Script:** `band_energy_relative.praat`
+**Script:** `task_04_band_energy_relative.praat`
 
 This script measures relative spectral energy within the predefined **540–1720 Hz** nasal-window frequency range.
 
