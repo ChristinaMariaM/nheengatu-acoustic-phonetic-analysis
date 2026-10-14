@@ -442,3 +442,150 @@ The recordings and annotations used in the present study are not included in thi
 DatabaseExplorer was developed by Prof. Volker Dellwo (University of Zurich). The original authorship information and GNU General Public License notice have been retained in the script. The version provided in this repository is identical to the original and has not been modified for the present study.
 
 
+### Task 04 – Vowel formants and duration
+
+**Script:** `task_04_f1_f2_duration.praat`
+
+This script automatically measures F1, F2, and vowel duration for the Task 04 vowel segments. Formant frequencies are obtained at the temporal midpoint of each annotated vowel using Praat's Burg formant analysis, minimizing the influence of adjacent consonantal transitions.
+
+**Required input files:**
+- Task 04 WAV files.
+- Corresponding TextGrid files containing the annotated vowel intervals.
+
+**File paths and execution:**
+
+The `Data_folder` parameter specifies the directory containing the WAV and TextGrid files. The `Output_file` parameter specifies the destination of the measurement table. Both must be adjusted to the user's local file structure.
+
+The script processes nonempty intervals in the selected annotation tier. The number of formants and maximum formant frequency can be configured in the input form.
+
+**Software requirements:** Praat (versions 6.4.17 and 6.6.30 were used in the present study).
+
+**Output:** A semicolon-separated CSV file containing the source filename, vowel label, interval boundaries, duration, midpoint, and F1/F2 measurements.
+
+
+### Task 04 – Local spectral-minimum analysis
+
+**Script:** `antiformant_candidates.praat`
+
+This script estimates the frequency and magnitude of the lowest local spectral-energy point within a predefined frequency window, providing an exploratory measure of spectral attenuation potentially associated with nasalization.
+
+The analysis uses the central 50% of each vowel interval to reduce the influence of adjacent consonantal transitions. Within the **540–1720 Hz** search window, spectral energy is measured in 80-Hz bands at 10-Hz increments. The frequency associated with the lowest energy is retained together with its energy value.
+
+The script does not identify confirmed antiformants; its measurements are interpreted as local spectral minima.
+
+The search window was established from the F1–F2 region of a sample of phonologically nasal Task 01 vowels, as described in the thesis methodology.
+
+**Required input files:**
+- Individual vowel WAV files from Task 04 or phonologically nasal reference vowels from Task 01.
+- Corresponding TextGrid files containing the vowel annotations.
+
+**File paths and execution:**
+
+The `Data_folder` parameter specifies the directory containing matching WAV and TextGrid files. The `Output_file` parameter specifies the destination of the results. Both paths must be adjusted to the user's local file structure.
+
+The script processes the first nonempty interval in the selected tier of each file.
+
+**Software requirements:** Praat.
+
+**Output:** A semicolon-separated CSV file containing the source filename, vowel label, analyzed interval boundaries, search-window identifier, frequency of minimum spectral energy, raw minimum energy, and its logarithmic representation.
+
+
+### Task 04 – Relative nasal-window energy
+
+**Script:** `band_energy_relative.praat`
+
+This script measures relative spectral energy within the predefined **540–1720 Hz** nasal-window frequency range.
+
+For each vowel, the central 50% of the annotated interval is extracted to reduce the influence of consonantal transitions. Spectral energy within the nasal window is calculated relative to the total spectral energy between 0 and 5000 Hz. The resulting ratio is also expressed on a logarithmic (dB) scale.
+
+Unlike absolute band energy, this relative measure reduces the influence of differences in recording amplitude. The procedure was used to compare Task 04 vowels with phonologically nasal reference vowels from Task 01 and to investigate potential differences between read and spontaneous speech.
+
+**Required input files:**
+- Individual vowel WAV files from Task 04 or phonologically nasal reference vowels from Task 01.
+- Corresponding TextGrid files containing the vowel annotations.
+
+**File paths and execution:**
+
+The `Data_folder` parameter specifies the input directory, and `Output_file` specifies the destination of the results. Both paths must be adjusted to the user's local file structure.
+
+The script processes the first nonempty interval in the selected annotation tier of each file.
+
+**Software requirements:** Praat.
+
+**Output:** A semicolon-separated CSV file containing the source filename, vowel label, analyzed interval boundaries, frequency window, nasal-window energy, total spectral energy, relative energy ratio, and relative energy in dB.
+
+
+### Task 04 – Nasal consonant duration
+
+**Script:** `n_durations.praat`
+
+This script automatically extracts the duration of the nasal consonant /n/ in the Task 04 sequences *and*, *end*, *ind*, and *und*.
+
+The script reads the manually annotated TextGrid files and identifies sequences consisting of three consecutive intervals: a vowel (/a, e, i, u/), followed by /n/ and /d/. For each valid sequence, the duration of /n/ is calculated from its annotated onset and offset boundaries.
+
+These measurements were used to investigate the temporal realization of the nasal consonant and assess potential consonant deletion.
+
+**Required input files:**
+- Task 04 TextGrid files with vowel–/n/–/d/ annotations in Tier 1.
+
+**File paths and execution:**
+
+The `textgrid_folder` parameter specifies the directory containing the annotated TextGrid files, and `output_file` specifies the destination of the results. Both paths must be adjusted to the user's local file structure.
+
+**Software requirements:** Praat (the script specifies compatibility with version 6.6.30).
+
+**Output:** A tab-separated TSV file containing the source filename, token number, interval number, sequence identity, vowel identity, /n/ onset and offset, and consonant duration in seconds and milliseconds.
+
+
+### Task 04 – Spectral extraction of Task 01 reference vowels
+
+**Script:** `spectrum_task_01_reference_vowels.praat`
+
+This script extracts spectral measurements from phonologically oral and nasal Task 01 vowels selected as reference material for the Task 04 spectral comparison.
+
+For each annotated vowel, a **40-ms window centered on the vowel midpoint** is extracted using a Hanning window. A spectrum and a long-term average spectrum (LTAS) are calculated, and amplitude values between 300 and 3000 Hz are exported.
+
+The script distinguishes the four oral vowels /a, e, i, u/ from their phonologically nasal counterparts /ã, ẽ, ĩ, ũ/ and retains the corresponding vowel and nasality labels.
+
+**Required input files:**
+- Selected Task 01 reference-vowel WAV files.
+- Corresponding TextGrid files containing vowel annotations.
+
+**File paths and execution:**
+
+The `input_folder` parameter specifies the directory containing the selected reference files. The `output_file` parameter specifies the destination of the spectral table. Both must be adjusted to the user's local file structure.
+
+The annotation tier, window duration, and frequency limits can be configured in the script's input form.
+
+**Software requirements:** Praat.
+
+**Output:** A tab-separated TSV file containing token identifiers, vowel and nasality classifications, vowel and analysis-window boundaries, frequency values, and spectral amplitude measurements.
+
+
+### Task 04 – Spectral extraction of target vowels
+
+**Script:** `spectrum_task_04_target_vowels.praat`
+
+This script extracts spectral measurements from the Task 04 target vowels preceding /nd/, using the same procedure as the Task 01 reference-vowel script.
+
+For each identified target vowel, a **40-ms analysis window centered on the vowel midpoint** is extracted using a Hanning window. A spectrum and LTAS are calculated, and amplitude values between 300 and 3000 Hz are exported for subsequent analysis in R.
+
+The script identifies target vowels /a, e, i, u/ in the annotated Task 04 material and retains the vowel identity and token metadata.
+
+The resulting spectral measurements were used to compare Task 04 vowels with the corresponding oral and nasal reference vowels from Task 01. Spectral centering, descriptive plots, and GAMM analyses were subsequently performed in R.
+
+**Required input files:**
+- Task 04 WAV recordings containing annotated target sequences.
+- Corresponding TextGrid files with the target vowel intervals.
+
+**File paths and execution:**
+
+The `input_folder` parameter specifies the directory containing the Task 04 recordings and annotations. The `output_file` parameter specifies the destination of the spectral table. Both must be adjusted to the user's local file structure.
+
+The annotation tier, analysis-window duration, and frequency limits can be configured in the input form.
+
+**Software requirements:** Praat.
+
+**Output:** A tab-separated TSV file containing token identifiers, vowel identity, dataset label, vowel and analysis-window boundaries, frequency values, and spectral amplitude measurements.
+
+**Data availability:** The original recordings, TextGrid annotations, and measurement tables are not included in this repository because access to the underlying speech data is restricted.
