@@ -21,6 +21,7 @@ The script does not contain the original local file paths used during the analys
 
 **Output:** Vowel-space plots and two CSV files containing descriptive statistics for the main vowel measurements and the corrected /ũ/ measurements. The CSV files are saved in the current working directory.
 
+
 ### Task 02 – Vowel formants
 
 **Script:** `task_02_vowel_formants.R`
@@ -38,6 +39,38 @@ The script does not contain the original local file path used during the analysi
 
 **Software requirements:** R with the `tidyverse` and `cluster` packages.
 
+
+### Task 03 – Descriptive and inferential statistics
+
+**Script:** `task_03_descriptive_and_inferential_statistics.R`
+
+This script analyzes glottal-stop occurrence in Task 3 using manually annotated observations. It processes the annotation spreadsheet, calculates the frequency and percentage of glottal-stop occurrences by lexical item, speaker group (L1/L2), and age, and generates a bar chart illustrating the distribution across lexical items. Inferential analyses include a chi-square test or Fisher's exact test, depending on expected cell frequencies, and a logistic mixed-effects model investigating the association between L1/L2 speaker status and glottal-stop occurrence, with speaker included as a random intercept.
+
+**Required input file:**
+- `file_name`: Task 3 annotation spreadsheet (`task_03_glottal_stop_counts.xlsx`), containing speaker information and manually coded glottal-stop observations.
+
+The input file is read using the `readxl` package.
+
+**File paths and execution:**
+
+The script does not contain the original local file path used during the analysis. It has been replaced with a placeholder to avoid publishing personal directory information. To execute the script, users must specify the location of the corresponding Excel spreadsheet in the `file_name` variable defined at the beginning of the script. The input data are not included in this repository.
+
+The output directory is automatically determined from the location of the input spreadsheet using `dirname(file_name)`. All generated files are saved in that directory.
+
+**Software requirements:** R with the `readxl`, `dplyr`, `tidyr`, `ggplot2`, `lme4`, and `stringr` packages.
+
+**Output:** Descriptive summaries, statistical test results, model results, and a visualization, saved as the following files:
+
+- `task03_glottal_stop_summary_by_word.csv` – glottal-stop counts and percentages by lexical item.
+- `task03_glottal_stop_summary_by_group.csv` – glottal-stop counts and percentages for L1 and L2 speakers.
+- `task03_glottal_stop_summary_by_age.csv` – glottal-stop counts and percentages by age.
+- `task03_glottal_stop_complete_summary.txt` – combined descriptive summaries.
+- `task03_glottal_stop_barplot.png` – bar chart showing glottal-stop occurrence by lexical item.
+- `task03_glottal_stop_test_results.txt` – contingency table and chi-square or Fisher's exact test results.
+- `task03_glottal_L1_status_model_summary.txt` – logistic mixed-effects model summary.
+- `task03_glottal_L1_status_fixed_effects.csv` – fixed-effect estimates, significance tests, and odds ratios.
+- `task03_glottal_L1_status_random_effects.csv` – random-effect estimates.
+- `task03_glottal_L1_status_model_info.csv` – model diagnostics and fit statistics.
 **Output:** Vowel-space plots and the following files, saved in the current working directory:
 
 - `task02_kmeans_classified_tokens.csv` – token-level formant measurements, cluster assignments, and silhouette widths.
