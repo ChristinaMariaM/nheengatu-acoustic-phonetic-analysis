@@ -325,6 +325,35 @@ The formant ceiling arguments must be set to `4900`, `5000`, and `10` (minimum, 
 The original recordings, extracted vowel files, and measurement tables are not included in this repository.
 
 
+### Task 02 – Preliminary vowel-space analysis
+
+**Script:** `task_02_formants.praat`
+
+**Purpose:** Extraction of F1 and F2 measurements at vowel midpoints for the preliminary acoustic analysis of Task 02.
+
+This Praat script extracts F1 and F2 measurements at the temporal midpoint of annotated intervals in Tier 1 of the corresponding TextGrid files. The measurements were used to create an initial vowel-space plot of tokens previously classified auditorily as /u/ or /o/.
+
+The script processes WAV files and their corresponding TextGrid annotations using Praat's Burg formant analysis. The default settings specify five formants and a maximum formant frequency of 5500 Hz. For each interval with a positive duration, the script calculates its midpoint and extracts the corresponding F1 and F2 values.
+
+Unlike the subsequent automated formant-analysis procedure (`task_02_makeTable.praat`), this script retains the original interval labels, allowing the preliminary measurements to be examined in relation to the auditory classifications.
+
+**Required input files:**
+- WAV files containing the Task 02 recordings.
+- Corresponding TextGrid files with annotated intervals in Tier 1.
+
+**File paths and execution:**
+
+The script uses a configurable input folder, which must be adjusted to the user's local file structure. The folder must contain WAV files and their corresponding TextGrid files with matching basenames.
+
+The analysis parameters, including the annotation tier, maximum formant frequency, and number of formants, can be adjusted in the script's input form.
+
+**Software requirements:** Praat (versions 6.4.17 and 6.6.30 were used in the present study).
+
+**Output:** A tab-separated file named `task02_formants_all_intervals.tsv`, saved in the input directory. The table contains the source filename, interval number, original annotation label, start and end times, duration, temporal midpoint, and F1 and F2 measurements.
+
+The recordings, TextGrid annotations, and measurement tables used in the present study are not included in this repository.
+
+
 ### Task 02 – Automated vowel formant measurements
 
 **Script:** `task_02_makeTable.praat`
