@@ -81,7 +81,7 @@ The output directory is automatically determined from the location of the input 
 
 ### Task 04 – Spectral-energy measures
 
-**Script:** `task_04_spectral_energy_measures.R`
+**Script:** `task_04_spectral_descriptive_statistics.R`
 
 This script processes spectral measurements obtained from Task 4 /Vnd/ vowels and phonologically nasal reference vowels from Task 1. It calculates descriptive statistics and generates boxplots comparing the two groups across four acoustic measures: local spectral-minimum frequency (Hz), local spectral-minimum energy (dB), relative spectral band energy (raw ratio), and relative nasal-window energy (dB). For each measure and group, the script calculates the number of valid observations, mean, median, and standard deviation.
 
