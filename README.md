@@ -1,6 +1,8 @@
 # nheengatu-acoustic-phonetic-analysis
 R and Praat scripts for the acoustic-phonetic analysis of Nheengatu speech data
 
+## R scripts
+
 ### Task 01 – Vowel formants
 
 **Script:** `task_01_vowel_formants.R`
@@ -197,8 +199,43 @@ All exported files are saved in the current R working directory.
 - Three paired speaker-level plots illustrating differences between speech styles.
 
 The CSV files are saved in the current working directory. The plots are displayed in R but are not automatically exported as image files.
+
 **Output:** One Excel spreadsheet:
 
 - `n_duration_summary.xlsx` – descriptive statistics for /n/ duration by sequence and overall, including observation counts, mean, median, standard deviation, minimum, and maximum duration in milliseconds.
 
 The output file is saved to the location specified in `output_path`.
+
+
+## Praat scripts
+
+
+
+### DatabaseExplorer – Sound file browsing and editing
+
+**Script:** `databaseExplorer.praat`
+
+**Author:** Prof. Volker Dellwo, University of Zurich
+
+This open-source Praat script facilitates browsing and basic editing of Sound objects stored in the same directory. It allows users to navigate between recordings, inspect their acoustic properties, and perform basic editing operations, including the extraction and saving of selected sound segments. The tool also supports working with corresponding TextGrid annotations.
+
+In the present study, DatabaseExplorer was used to review extracted vowel recordings and perform basic editing where necessary. The script was used without modification.
+
+**Required input:**
+- A Sound object selected in Praat, originating from a directory containing the recordings to be reviewed.
+
+The script identifies the directory of the selected Sound object and allows navigation through other sound files with the same extension.
+
+**File paths and execution:**
+
+The script does not require users to specify a personal file path in the source code. It identifies the location of the selected Sound object automatically. When saving edited recordings, users can select an output directory interactively.
+
+The recordings and annotations used in the present study are not included in this repository.
+
+**Software requirements:** Praat.
+
+**Output:** Interactive browsing and inspection of sound recordings, with the option to save edited Sound objects and corresponding TextGrid annotations.
+
+**Authorship and license:**
+
+DatabaseExplorer was developed by Prof. Volker Dellwo (University of Zurich). The original authorship information and GNU General Public License notice have been retained in the script. The version provided in this repository is identical to the original and has not been modified for the present study.
