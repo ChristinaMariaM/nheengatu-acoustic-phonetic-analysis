@@ -1,7 +1,7 @@
 # nheengatu-acoustic-phonetic-analysis
 Praat and R scripts for the acoustic-phonetic analysis of Nheengatu speech data
 
-This repository contains the R and Praat scripts used for the acoustic-phonetic analysis of Nheengatu speech data in a master's thesis at the University of Zurich. The scripts cover vowel formants, vowel-space analysis, glottal-stop occurrence, spectral measures associated with nasalization, and nasal consonant duration.
+This repository contains the Praat and R scripts used for the acoustic-phonetic analysis of Nheengatu speech data in a master's thesis at the University of Zurich. The scripts cover vowel formants, vowel-space analysis, glottal-stop occurrence, spectral measures associated with nasalization, and nasal consonant duration.
 
 The original speech recordings, annotations, and measurement datasets are not publicly available in this repository because access to the underlying research data is restricted.
 
