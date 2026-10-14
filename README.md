@@ -209,6 +209,36 @@ The output file is saved to the location specified in `output_path`.
 
 ## Praat scripts
 
+### DatabaseExplorer – Sound file browsing and editing
+
+**Script:** `databaseExplorer.praat`
+
+**Author:** Prof. Volker Dellwo, University of Zurich
+
+This open-source Praat script facilitates browsing and basic editing of Sound objects stored in the same directory. It allows users to navigate between recordings, inspect their acoustic properties, and perform basic editing operations, including the extraction and saving of selected sound segments. The tool also supports working with corresponding TextGrid annotations.
+
+In the present study, DatabaseExplorer was used to review extracted vowel recordings and perform basic editing where necessary. The script was used without modification.
+
+**Required input:**
+- A Sound object selected in Praat, originating from a directory containing the recordings to be reviewed.
+
+The script identifies the directory of the selected Sound object and allows navigation through other sound files with the same extension.
+
+**File paths and execution:**
+
+The script does not require users to specify a personal file path in the source code. It identifies the location of the selected Sound object automatically. When saving edited recordings, users can select an output directory interactively.
+
+The recordings and annotations used in the present study are not included in this repository.
+
+**Software requirements:** Praat.
+
+**Output:** Interactive browsing and inspection of sound recordings, with the option to save edited Sound objects and corresponding TextGrid annotations.
+
+**Authorship and license:**
+
+DatabaseExplorer was developed by Prof. Volker Dellwo (University of Zurich). The original authorship information and GNU General Public License notice have been retained in the script. The version provided in this repository is identical to the original and has not been modified for the present study.
+
+
 ### Tasks 01 and 02 – Vowel extraction
 
 **Script:** `task_01_02_vowel_extraction.praat`
@@ -411,35 +441,6 @@ The variables `rDir$` and `wDir$` specify the input and output directories, resp
 **Output:** Individual WAV files and corresponding TextGrid files containing the extracted vowel intervals. Filenames retain the original recording basename and append a consecutive vowel number and vowel label (e.g., `l1_spk01_m_baré_task04a_01_i.wav` and `l1_spk01_m_baré_task04a_01_i.TextGrid`).
 
 The recordings and annotations used in the present study are not included in this repository.
-
-### DatabaseExplorer – Sound file browsing and editing
-
-**Script:** `databaseExplorer.praat`
-
-**Author:** Prof. Volker Dellwo, University of Zurich
-
-This open-source Praat script facilitates browsing and basic editing of Sound objects stored in the same directory. It allows users to navigate between recordings, inspect their acoustic properties, and perform basic editing operations, including the extraction and saving of selected sound segments. The tool also supports working with corresponding TextGrid annotations.
-
-In the present study, DatabaseExplorer was used to review extracted vowel recordings and perform basic editing where necessary. The script was used without modification.
-
-**Required input:**
-- A Sound object selected in Praat, originating from a directory containing the recordings to be reviewed.
-
-The script identifies the directory of the selected Sound object and allows navigation through other sound files with the same extension.
-
-**File paths and execution:**
-
-The script does not require users to specify a personal file path in the source code. It identifies the location of the selected Sound object automatically. When saving edited recordings, users can select an output directory interactively.
-
-The recordings and annotations used in the present study are not included in this repository.
-
-**Software requirements:** Praat.
-
-**Output:** Interactive browsing and inspection of sound recordings, with the option to save edited Sound objects and corresponding TextGrid annotations.
-
-**Authorship and license:**
-
-DatabaseExplorer was developed by Prof. Volker Dellwo (University of Zurich). The original authorship information and GNU General Public License notice have been retained in the script. The version provided in this repository is identical to the original and has not been modified for the present study.
 
 
 ### Task 04 – Vowel formants and duration
