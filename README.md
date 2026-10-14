@@ -267,7 +267,6 @@ The supporting function is called automatically for each eligible vowel file. Th
 
 The recordings and measurement tables used in the present study are not included in this repository.
 
----
 
 ### Tasks 01 and 02 – Automated pitch and formant measurement function
 
@@ -324,6 +323,35 @@ The formant ceiling arguments must be set to `4900`, `5000`, and `10` (minimum, 
 **Output:** A Praat table containing the remeasured acoustic values for the 11 selected /ũ/ tokens, for incorporation into the final Task 01 formant dataset.
 
 The original recordings, extracted vowel files, and measurement tables are not included in this repository.
+
+
+### Task 02 – Automated vowel formant measurements
+
+**Script:** `task_02_makeTable.praat`
+
+**Supporting script:** `function_findBestPitchAndFormant.praat`
+
+**Authorship:** Original script developed by Prof. Volker Dellwo (University of Zurich) and adapted by Christina Müller for Task 02.
+
+This Praat script performs automated acoustic measurements of the vowel segments extracted for Task 02. It processes individual vowel WAV files and calls `function_findBestPitchAndFormant.praat` to obtain pitch and formant measurements using the same automated procedure as in Task 01, including the selection of the optimal formant ceiling.
+
+Only vowel files longer than 40 ms are processed. The script extracts metadata from the filenames, including language group, speaker, sex, ethnicity, task, and item number. Unlike the Task 01 version, it does not extract or include a vowel-category variable, ensuring that the subsequent acoustic analysis is independent of the previous auditory classification. Pitch ceilings are set to 400 Hz for male speakers and 500 Hz for female speakers.
+
+**Required input files:**
+- Individual vowel WAV files extracted for Task 02.
+- `function_findBestPitchAndFormant.praat`, which must be accessible to the main script.
+
+**File paths and execution:**
+
+The variable `rDir$` specifies the directory containing the extracted vowel WAV files and must be adjusted to the user's local file structure.
+
+The supporting function is called automatically for each eligible vowel file. The script creates timestamped output subdirectories within `tables/` and `pics/`, relative to the working directory.
+
+**Software requirements:** Praat (versions 6.4.17 and 6.6.30 were used in the present study).
+
+**Output:** Individual tab-separated Praat measurement tables, corresponding PNG visualizations, and a combined table named `ALL_formant_measurements.Table`, containing the acoustic measurements and filename-derived metadata for all processed vowels. The combined table is subsequently imported into R for further analysis.
+
+The recordings and measurement tables used in the present study are not included in this repository.
 
 
 ### Task 04 – Vowel extraction from /Vnd/ sequences
