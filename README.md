@@ -211,7 +211,7 @@ The output file is saved to the location specified in `output_path`.
 
 ### Tasks 01 and 02 – Vowel extraction
 
-**Script:** `task_01_vowel_extraction.praat`
+**Script:** `task_01_02_vowel_extraction.praat`
 
 **Original script:** Prof. Volker Dellwo, University of Zurich  
 **Study-specific adaptation:** Christina Müller
