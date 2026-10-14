@@ -239,6 +239,38 @@ The variables `rDir$` and `wDir$` specify the input and output directories, resp
 The recordings and annotations used in the present study are not included in this repository.
 
 
+
+
+
+### Task 01 – Reanalysis of selected nasal /ũ/ tokens
+
+**Script:** `task_01_reanalyze_u_nasal.praat`
+
+**Supporting script:** `function_findBestPitchAndFormant.praat`
+
+This Praat script selectively reanalyzes 11 nasal /ũ/ tokens that showed unexpectedly high F2 values (above 2000 Hz) during the initial formant analysis. The affected tokens were identified through visual inspection of the vowel space and subsequent examination of their formant tracks and spectrograms in Praat.
+
+The reanalysis uses the same automated formant-measurement procedure and settings as the initial analysis, except for the range of formant ceilings considered. The optimal ceiling is selected from **4900 to 5000 Hz in 10-Hz increments**, rather than the wider range used in the initial analysis. This restriction was introduced to reduce LPC tracking errors associated with excessively high formant ceilings.
+
+The resulting measurements were used to replace the original values of the 11 affected tokens in the final Task 01 dataset.
+
+**Required input files:**
+- The 11 selected vowel WAV files from Task 01.
+- `function_findBestPitchAndFormant.praat`, which implements the automated measurement procedure.
+
+**File paths and execution:**
+
+The script contains a predefined list of the 11 affected vowel filenames. The input directory must be adjusted to the user's local file structure, and the supporting function script must be accessible at the path specified in the main script.
+
+The formant ceiling arguments must be set to `4900`, `5000`, and `10` (minimum, maximum, and increment, respectively) to reproduce the reanalysis described here.
+
+**Software requirements:** Praat.
+
+**Output:** A Praat table containing the remeasured acoustic values for the 11 selected /ũ/ tokens, for incorporation into the final Task 01 formant dataset.
+
+The original recordings, extracted vowel files, and measurement tables are not included in this repository.
+
+
 ### Task 04 – Vowel extraction from /Vnd/ sequences
 
 **Script:** `task_04_vowel_extraction_reconstructed.praat`
@@ -296,3 +328,5 @@ The recordings and annotations used in the present study are not included in thi
 **Authorship and license:**
 
 DatabaseExplorer was developed by Prof. Volker Dellwo (University of Zurich). The original authorship information and GNU General Public License notice have been retained in the script. The version provided in this repository is identical to the original and has not been modified for the present study.
+
+
