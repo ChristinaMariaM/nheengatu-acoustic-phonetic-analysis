@@ -540,7 +540,7 @@ The `textgrid_folder` parameter specifies the directory containing the annotated
 
 ### Task 04 – Spectral extraction of Task 01 reference vowels
 
-**Script:** `spectrum_task_01_reference_vowels.praat`
+**Script:** `task_04_spectrum_task_01_reference_vowels.praat`
 
 This script extracts spectral measurements from phonologically oral and nasal Task 01 vowels selected as reference material for the Task 04 spectral comparison.
 
@@ -565,7 +565,7 @@ The annotation tier, window duration, and frequency limits can be configured in 
 
 ### Task 04 – Spectral extraction of target vowels
 
-**Script:** `spectrum_task_04_target_vowels.praat`
+**Script:** `task_04_spectrum_task_04_target_vowels.praat`
 
 This script extracts spectral measurements from the Task 04 target vowels preceding /nd/, using the same procedure as the Task 01 reference-vowel script.
 
