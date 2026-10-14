@@ -209,7 +209,64 @@ The output file is saved to the location specified in `output_path`.
 
 ## Praat scripts
 
+### Tasks 01 and 02 – Vowel extraction
 
+**Script:** `task_01_vowel_extraction.praat`
+
+**Original script:** Prof. Volker Dellwo, University of Zurich  
+**Study-specific adaptation:** Christina Müller
+
+This Praat script automatically extracts annotated vowel intervals from recordings and their corresponding TextGrid files. Based on a script developed by Prof. Volker Dellwo, it was adapted for Tasks 01 and 02 to restrict extraction to predefined vowel labels and number successfully extracted vowels consecutively.
+
+The script processes the first TextGrid tier and accepts only the labels `a`, `e`, `i`, `o`, `u`, `ã`, `ẽ`, `ĩ`, `õ`, and `ũ`. Spaces and tab characters are removed from interval labels before checking them. Other labels and empty intervals are excluded.
+
+Extracted vowels are numbered consecutively within each recording, starting at `01`, independently of their original interval numbers. Sound intervals are extracted using the annotated boundaries, without adjustment to nearby zero crossings.
+
+**Required input files:**
+- WAV recordings containing the speech material.
+- Corresponding Praat TextGrid files with vowel annotations on the first tier.
+
+Each WAV file must have a corresponding TextGrid file with the same basename.
+
+**File paths and execution:**
+
+The variables `rDir$` and `wDir$` specify the input and output directories, respectively. These paths must be adjusted to the user's local directory structure before execution. The output directory must already exist.
+
+**Software requirements:** Praat.
+
+**Output:** Individual WAV files and corresponding TextGrid files for each accepted vowel interval. Filenames retain the original recording basename and append a consecutive vowel number (e.g., `recording_01.wav` and `recording_01.TextGrid`).
+
+The recordings and annotations used in the present study are not included in this repository.
+
+
+### Task 04 – Vowel extraction from /Vnd/ sequences
+
+**Script:** `task_04_vowel_extraction_reconstructed.praat`
+
+**Original script:** Prof. Volker Dellwo, University of Zurich  
+**Study-specific adaptation:** Christina Müller
+
+This Praat script automatically extracts the vowel interval from annotated three-segment sequences corresponding to *and*, *end*, *ind*, and *und*. It is based on the extraction script developed by Prof. Volker Dellwo and was adapted for Task 04 of the present study.
+
+The script examines the first tier of each TextGrid and identifies sequences in which a vowel labelled `a`, `e`, `i`, or `u` is immediately followed by intervals labelled `n` and `d`. Only the vowel interval is extracted; the consonantal intervals are excluded. Any additional TextGrid tiers are ignored for interval selection.
+
+Successfully extracted vowels are numbered consecutively within each recording, starting at `01`. The Sound intervals are extracted using their annotated boundaries, without adjustment to nearby zero crossings.
+
+**Required input files:**
+- WAV recordings from Task 04a (read speech) and/or Task 04b (spontaneous speech).
+- Corresponding Praat TextGrid files containing the separately annotated vowel, /n/, and /d/ intervals on the first tier.
+
+Each WAV file must have a corresponding TextGrid file with the same basename.
+
+**File paths and execution:**
+
+The variables `rDir$` and `wDir$` specify the input and output directories, respectively. The placeholder paths must be replaced with the appropriate local directories before execution. The output directory must already exist.
+
+**Software requirements:** Praat.
+
+**Output:** Individual WAV files and corresponding TextGrid files containing the extracted vowel intervals. Filenames retain the original recording basename and append a consecutive vowel number and vowel label (e.g., `l1_spk01_m_baré_task04a_01_i.wav` and `l1_spk01_m_baré_task04a_01_i.TextGrid`).
+
+The recordings and annotations used in the present study are not included in this repository.
 
 ### DatabaseExplorer – Sound file browsing and editing
 
