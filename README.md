@@ -112,3 +112,37 @@ All output files are saved in the current R working directory.
 - `boxplot_local_spectral_minimum_energy_dB.png` – comparison of local spectral-minimum energies.
 - `boxplot_relative_band_energy.png` – comparison of relative spectral band energy (raw ratio).
 - `boxplot_relative_nasal_window_energy_dB.png` – comparison of relative nasal-window energy (dB).
+
+
+### Task 04 – Spectra and GAMM
+
+**Script:** `task_04_spectra_and_GAMM.R`
+
+This script analyzes spectral measurements from Task 1 and Task 4 to investigate the acoustic characteristics of vowels in /Vnd/ sequences relative to phonologically oral and nasal reference vowels. The analysis is restricted to five reference speakers (1, 2, 6, 8, and 13). Individual spectra are centered by subtracting the mean amplitude of each token, and mean spectral curves are calculated for each vowel and group.
+
+The script generates visual comparisons of individual and mean spectra from Task 1 and Task 4. It subsequently calculates speaker-level mean spectral curves and fits generalized additive mixed models (GAMMs) using the `mgcv` package. The models included in this script compare Task 4 /a/ spectra separately with Task 1 oral /a/ and nasal /ã/ reference spectra. Frequency-dependent spectral differences are modeled using smooth terms, with speaker included as a random effect. Model summaries are exported, and predicted spectral curves with 95% confidence intervals are plotted.
+
+**Required input files:**
+- `task01_file`: Task 1 spectral measurements (`task01_spectra.xlsx`), containing phonologically oral and nasal reference vowels.
+- `task04_file`: Task 4 spectral measurements (`task04_spectra.xlsx`), containing vowels from /Vnd/ sequences.
+
+Both input files are read using the `readxl` package.
+
+**File paths and execution:**
+
+The script does not contain the original local file paths used during the analysis. These have been replaced with placeholders to avoid publishing personal directory information. To execute the script, users must specify the locations of the two corresponding input files in the `task01_file` and `task04_file` variables defined at the beginning of the script. The input data are not included in this repository.
+
+The `gamm_output_file` variable specifies the location and filename of the Excel workbook containing the GAMM results. Users must provide a valid output path before executing the script.
+
+**Software requirements:** R with the `readxl`, `dplyr`, `ggplot2`, `mgcv`, and `writexl` packages.
+
+**Output:** Spectral visualizations and GAMM results, including:
+
+- Individual oral and nasal reference spectra from Task 1, grouped by vowel.
+- Mean oral and nasal reference spectra from Task 1, grouped by vowel.
+- Individual Task 4 spectra overlaid with Task 1 reference curves.
+- Mean spectral curves comparing Task 1 oral, Task 1 nasal, and Task 4 target vowels.
+- GAMM results for Task 4 /a/ compared with Task 1 oral /a/ and nasal /ã/, including parametric terms, smooth terms, and model information.
+- Predicted GAMM spectral curves with 95% confidence intervals for both comparisons.
+
+The GAMM results are exported to `GAMM_results_a.xlsx` (or the filename specified in `gamm_output_file`). The plots are displayed in R but are not automatically saved as image files.
