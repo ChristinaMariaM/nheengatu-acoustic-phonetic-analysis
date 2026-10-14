@@ -518,7 +518,7 @@ The script processes the first nonempty interval in the selected annotation tier
 
 ### Task 04 – Nasal consonant duration
 
-**Script:** `n_durations.praat`
+**Script:** `task_04_n_durations.praat`
 
 This script automatically extracts the duration of the nasal consonant /n/ in the Task 04 sequences *and*, *end*, *ind*, and *und*.
 
