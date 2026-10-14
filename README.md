@@ -239,7 +239,62 @@ The variables `rDir$` and `wDir$` specify the input and output directories, resp
 The recordings and annotations used in the present study are not included in this repository.
 
 
+### Task 01 – Automated vowel formant measurements
 
+**Script:** `task_01_makeTable.praat`
+
+**Supporting script:** `function_findBestPitchAndFormant.praat`
+
+**Authorship:** Original script developed by Prof. Volker Dellwo (University of Zurich) and adapted by Christina Müller for Task 01.
+
+This Praat script performs automated acoustic measurements of the vowel segments extracted for Task 01. It processes individual vowel WAV files and calls `function_findBestPitchAndFormant.praat` to obtain pitch and formant measurements using an automated procedure for selecting the optimal formant ceiling.
+
+Only vowel files longer than 40 ms are processed. The script extracts metadata from the filenames, including speaker, language status, sex, ethnicity, task, item number, and vowel identity. Pitch ceilings are set to 400 Hz for male speakers and 500 Hz for female speakers.
+
+**Required input files:**
+- Individual vowel WAV files extracted for Task 01.
+- `function_findBestPitchAndFormant.praat`, which must be accessible to the main script.
+
+**File paths and execution:**
+
+The variable `rDir$` specifies the directory containing the extracted vowel WAV files and must be adjusted to the user's local file structure.
+
+The supporting function is called automatically for each eligible vowel file. The script creates timestamped output subdirectories within `tables/` and `pics/`, relative to the working directory.
+
+**Software requirements:** Praat (versions 6.4.17 and 6.6.30 were used in the present study).
+
+**Output:** Individual tab-separated Praat measurement tables, corresponding PNG visualizations, and a combined table named `ALL_formant_measurements.Table`, containing the acoustic measurements and filename-derived metadata for all processed vowels.
+
+The recordings and measurement tables used in the present study are not included in this repository.
+
+---
+
+### Tasks 01 and 02 – Automated pitch and formant measurement function
+
+**Script:** `function_findBestPitchAndFormant.praat`
+
+**Author:** Prof. Volker Dellwo, University of Zurich
+
+This Praat script implements the automated acoustic measurement procedure used for Tasks 01 and 02. It processes individual vowel Sound objects and estimates pitch and formant values, including an automated search across a specified range of formant ceilings.
+
+The function applies temporal padding to the vowel segment, performs pitch analysis, and evaluates formant estimates obtained with different ceiling settings. It returns acoustic measurements in a Praat table and can generate diagnostic visualizations.
+
+In the present study, the function was called by `task_01_makeTable.praat` for the initial Task 01 measurements, by `task_02_makeTable.praat` for Task 02 measurements, and by `task_01_reanalyse_u_nasal.praat` for the selective reanalysis of 11 nasal /ũ/ tokens. The formant-ceiling range and other analysis parameters are passed to the function by the calling scripts.
+
+**Required input:**
+- An individual vowel Sound object supplied automatically by the calling script.
+
+**File paths and execution:**
+
+The function does not require a dataset-specific input directory. It is called using `runScript`, with the relevant analysis parameters supplied as arguments.
+
+The function must be accessible under the filename `function_findBestPitchAndFormant.praat` at the path specified in the calling script.
+
+**Software requirements:** Praat. The original script was developed using version 6.4.17; versions 6.4.17 and 6.6.30 were used in the present study.
+
+**Output:** A Praat table containing pitch and formant measurements, with optional diagnostic visualizations. The calling scripts handle the saving and compilation of the results.
+
+**Authorship and license:** The function was developed by Prof. Volker Dellwo and retains its original GNU General Public License notice.
 
 
 ### Task 01 – Reanalysis of selected nasal /ũ/ tokens
